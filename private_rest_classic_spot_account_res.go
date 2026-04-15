@@ -71,3 +71,8 @@ type PrivateRestClassicSpotAccountUpgradeStatusRes struct {
 	Status string `json:"status"` // String 账户升级状态 process/success/fail
 	Reason string `json:"reason"` // String 失败原因，仅 status=fail 时返回
 }
+
+type PrivateRestClassicTradeRateRes struct {
+	MakerFeeRate string `json:"makerFeeRate"` // String 挂单手续费率
+	TakerFeeRate string `json:"takerFeeRate"` // String 吃单手续费率
+}

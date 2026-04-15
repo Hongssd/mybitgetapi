@@ -3,15 +3,17 @@ package mybitgetapi
 type PrivateRestClassicAPI int
 
 const (
-	PrivateRestClassicSpotAccountInfo            PrivateRestClassicAPI = iota // GET 获取账户信息
-	PrivateRestClassicSpotAccountAssets                                       // GET 获取账户现货资产
-	PrivateRestClassicSpotAccountBills                                        // GET 获取账单流水
-	PrivateRestClassicSpotWalletTransfer                                      // POST 划转
-	PrivateRestClassicSpotAccountTransferRecords                              // GET 获取划转记录
-	PrivateRestClassicSpotAccountSwitchDeduct                                 // POST 开启BGB抵扣
-	PrivateRestClassicSpotAccountDeductInfo                                   // GET 当前是否开启BGB抵扣
-	PrivateRestClassicSpotAccountUpgrade                                      // POST 账户升级
-	PrivateRestClassicSpotAccountUpgradeStatus                                // GET 查询升级状态
+	PrivateRestClassicTradeRate PrivateRestClassicAPI = iota // GET 获取交易手续费
+
+	PrivateRestClassicSpotAccountInfo            // GET 获取账户信息
+	PrivateRestClassicSpotAccountAssets          // GET 获取账户现货资产
+	PrivateRestClassicSpotAccountBills           // GET 获取账单流水
+	PrivateRestClassicSpotWalletTransfer         // POST 划转
+	PrivateRestClassicSpotAccountTransferRecords // GET 获取划转记录
+	PrivateRestClassicSpotAccountSwitchDeduct    // POST 开启BGB抵扣
+	PrivateRestClassicSpotAccountDeductInfo      // GET 当前是否开启BGB抵扣
+	PrivateRestClassicSpotAccountUpgrade         // POST 账户升级
+	PrivateRestClassicSpotAccountUpgradeStatus   // GET 查询升级状态
 
 	PrivateRestClassicSpotTradePlaceOrder              // POST 下单
 	PrivateRestClassicSpotTradeCancelReplaceOrder      // POST 撤单再下单
@@ -108,6 +110,8 @@ const (
 )
 
 var PrivateRestClassicAPIMap = map[PrivateRestClassicAPI]string{
+	PrivateRestClassicTradeRate: "/api/v2/common/trade-rate", // GET 获取交易手续费
+
 	PrivateRestClassicSpotAccountInfo:            "/api/v2/spot/account/info",            // GET 获取账户信息
 	PrivateRestClassicSpotAccountAssets:          "/api/v2/spot/account/assets",          // GET 获取账户现货资产
 	PrivateRestClassicSpotAccountBills:           "/api/v2/spot/account/bills",           // GET 获取账单流水

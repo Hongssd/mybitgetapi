@@ -139,3 +139,16 @@ func (api *PrivateRestClassicSpotAccountUpgradeStatusAPI) Do() (*BitgetRestRes[P
 	url := bitgetHandlerRequestAPIWithPathQueryParam(REST, api.req, PrivateRestClassicAPIMap[PrivateRestClassicSpotAccountUpgradeStatus])
 	return bitgetCallApiWithSecret[PrivateRestClassicSpotAccountUpgradeStatusRes](api.client.c, url, NIL_REQBODY, GET)
 }
+
+// GET 获取交易手续费
+func (client *PrivateRestClient) NewPrivateRestClassicTradeRate() *PrivateRestClassicTradeRateAPI {
+	return &PrivateRestClassicTradeRateAPI{
+		client: client,
+		req:    &PrivateRestClassicTradeRateReq{},
+	}
+}
+
+func (api *PrivateRestClassicTradeRateAPI) Do() (*BitgetRestRes[PrivateRestClassicTradeRateRes], error) {
+	url := bitgetHandlerRequestAPIWithPathQueryParam(REST, api.req, PrivateRestClassicAPIMap[PrivateRestClassicTradeRate])
+	return bitgetCallApiWithSecret[PrivateRestClassicTradeRateRes](api.client.c, url, NIL_REQBODY, GET)
+}
