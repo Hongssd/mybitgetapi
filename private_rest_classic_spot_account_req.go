@@ -207,3 +207,22 @@ func (api *PrivateRestClassicSpotAccountUpgradeStatusAPI) SubUid(subUid string) 
 	api.req.SubUid = GetPointer(subUid)
 	return api
 }
+
+type PrivateRestClassicTradeRateAPI struct {
+	client *PrivateRestClient
+	req    *PrivateRestClassicTradeRateReq
+}
+
+type PrivateRestClassicTradeRateReq struct {
+	Symbol       *string `json:"symbol"`       // String 是 交易对名称，如 BTCUSDT
+	BusinessType *string `json:"businessType"` // String 是 业务类型 mix合约/spot现货/margin杠杆
+}
+
+func (api *PrivateRestClassicTradeRateAPI) Symbol(symbol string) *PrivateRestClassicTradeRateAPI {
+	api.req.Symbol = GetPointer(symbol)
+	return api
+}
+func (api *PrivateRestClassicTradeRateAPI) BusinessType(businessType string) *PrivateRestClassicTradeRateAPI {
+	api.req.BusinessType = GetPointer(businessType)
+	return api
+}
